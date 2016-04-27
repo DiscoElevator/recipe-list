@@ -1,0 +1,17 @@
+<html ng-app="app">
+	<head>
+		<link href="../../node_modules/angular-material/angular-material.min.css" rel="stylesheet" />
+		<link href="../vendor/fonts/material-icons.css" rel="stylesheet" />
+		<script>
+			require("babel-register")({
+				plugins: ["transform-es2015-modules-commonjs"]
+			});
+			require("./app.js")
+		</script>
+		<title>Recipe list</title>
+	</head>
+	<body>
+		<base href="/">
+		<app></app>
+	</body>
+</html>

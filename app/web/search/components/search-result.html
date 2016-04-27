@@ -1,0 +1,6 @@
+<md-list flex>
+	<div ng-repeat="item in $ctrl.items">
+		<search-result-item item="item" on-edit="$ctrl.edit(recipeId)" router="$ctrl.$router" />
+		<md-divider></md-divider>
+	</div>
+</md-list>

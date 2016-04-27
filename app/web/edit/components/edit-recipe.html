@@ -1,0 +1,40 @@
+<div layout-padding="10px">
+	<form novalidate>
+		<md-input-container layout="row" class="md-block">
+			<label>Name</label>
+			<input type="text" ng-model="$ctrl.recipe.name" required>
+		</md-input-container>
+		<md-input-container layout="row">
+			<label>Time</label>
+			<input type="text" id="edit-time" ng-model="$ctrl.recipe.time">
+		</md-input-container>
+		<!-- <md-input-container layout="row">
+			 <label>Ingredients</label>
+			 <textarea ng-model="$ctrl.recipe.ingredients" required></textarea>
+			 </md-input-container> -->
+		<span layout="row">Ingredients:</span>
+		<div layout="row">
+			<md-input-container>
+				<label>Ingredient</label>
+				<input ng-model="$ctrl.ingredient.name">
+			</md-input-container>
+			<md-input-container>
+				<label>Count</label>
+				<input ng-model="$ctrl.ingredient.count">
+			</md-input-container>
+			<md-button class="md-fab" aria-label="add" ng-click="$ctrl.addIngredient()">
+				<md-icon>add</md-icon>
+			</md-button>
+		</div>
+		<ul ng-repeat="ingredient in $ctrl.recipe.ingredients">
+			<li>{{ingredient.name}} - {{ingredient.count}}</li>
+		</ul>
+		<md-input-container layout="row">
+			<label>Process</label>
+			<textarea ng-model="$ctrl.recipe.process" required></textarea>
+		</md-input-container>
+		<div layout="row">
+			<md-button class="md-primary md-raised" type="submit" ng-click="$ctrl.save()">Save</md-button>
+		</div>
+	</form>
+</div>

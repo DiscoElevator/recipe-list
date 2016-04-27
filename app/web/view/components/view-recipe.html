@@ -1,0 +1,9 @@
+<div layout-padding="10px">
+	<h2>{{::$ctrl.recipe.name}}</h2>
+	<span>Time: {{::$ctrl.recipe.time}}</span>
+	<h3 layout="row">Ingredients:</h3>
+	<ul ng-repeat="ingredient in $ctrl.recipe.ingredients">
+		<li>{{::ingredient.name}} - {{::ingredient.count}}</li>
+	</ul>
+	<p>{{::$ctrl.recipe.process}}</p>
+</div>
