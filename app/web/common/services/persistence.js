@@ -41,6 +41,20 @@ function persistenceService($q) {
 				return $q.resolve([]);
 			}
 			return $q.when(db.findAsync({name: new RegExp(name, "i")}));
+		},
+		remove(id) {
+			if (!id) {
+				return $q.resolve();
+			}
+			return $q((resolve, reject) => {
+				db.remove({_id: id}, err => {
+					if (err) {
+						reject(err);
+					} else {
+						resolve();
+					}
+				});
+			});
 		}
 	};
 }
