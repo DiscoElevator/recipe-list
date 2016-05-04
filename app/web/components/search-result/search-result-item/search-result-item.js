@@ -1,3 +1,5 @@
+import angular from "angular";
+
 function SearchResultItemController(persistenceService) {
 	this.editRecipe = (id) => {
 		var instruction = this.router.generate(["Edit", {recipeId: String(id)}]);
@@ -9,15 +11,12 @@ function SearchResultItemController(persistenceService) {
 	};
 }
 
-export default {
-	name: "searchResultItem",
-	component: {
-		controller: SearchResultItemController,
-		templateUrl: __dirname + "/search-result-item.html",
-		bindings: {
-			item: "<",
-			router: "<",
-			onRemove: "&"
-		}
+export default angular.module("search-result-item", []).component("searchResultItem", {
+	controller: SearchResultItemController,
+	templateUrl: __dirname + "/search-result-item.html",
+	bindings: {
+		item: "<",
+		router: "<",
+		onRemove: "&"
 	}
-};
+});

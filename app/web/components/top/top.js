@@ -1,3 +1,5 @@
+import angular from "angular";
+
 function TopController($rootRouter) {
 	this.searchQuery = "";
 	this.search = () => {
@@ -10,10 +12,7 @@ function TopController($rootRouter) {
 	};
 }
 
-export default {
-	name: "top",
-	component: {
-		templateUrl: __dirname + "/top.html",
-		controller: TopController
-	}
-};
+export default angular.module("top", []).component("top", {
+	templateUrl: __dirname + "/top.html",
+	controller: TopController
+});

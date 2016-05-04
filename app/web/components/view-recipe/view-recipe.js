@@ -1,3 +1,5 @@
+import angular from "angular";
+
 function ViewRecipeController(persistenceService, progressBarService) {
 	this.recipe = {};
 
@@ -16,15 +18,10 @@ function ViewRecipeController(persistenceService, progressBarService) {
 	};
 }
 
-const viewRecipe = {
+export default angular.module("view-recipe", []).component("viewRecipe", {
 	controller: ViewRecipeController,
 	templateUrl: __dirname + "/view-recipe.html",
 	bindings: {
 		recipeId: "@"
 	}
-};
-
-export default {
-	name: "viewRecipe",
-	component: viewRecipe
-};
+});

@@ -61,12 +61,7 @@ function validate(recipe) {
 	return recipe && recipe.name && recipe.process && (recipe.ingredients && recipe.ingredients.length);
 }
 
-const editRecipe = {
+export default angular.module("edit-recipe", []).component("editRecipe", {
 	controller: EditRecipeController,
 	templateUrl: __dirname + "/edit-recipe.html"
-};
-
-export default {
-	name: "editRecipe",
-	component: editRecipe
-};
+});

@@ -2,11 +2,11 @@ import angular from "angular";
 import router from "ngcomponentrouter";
 import ngMaterial from "angular-material";
 
-import search from "./search/search";
-import edit from "./edit/edit";
+import searchResult from "./components/search-result/search-result";
+import editRecipe from "./components/edit-recipe/edit-recipe";
 import common from "./common/common";
-import top from "./top/top";
-import view from "./view/view";
+import top from "./components/top/top";
+import viewRecipe from "./components/view-recipe/view-recipe";
 
 const APP_TEMPLATE = `
 <div layout="column" layout-fill>
@@ -17,7 +17,7 @@ const APP_TEMPLATE = `
 </div>
 `;
 
-angular.module("app", ["common", "search", "edit", "top", "view", "ngComponentRouter", "ngMaterial"])
+angular.module("app", ["common", "search-result", "edit-recipe", "top", "view-recipe", "ngComponentRouter", "ngMaterial"])
 	.config(($locationProvider) => {
 		$locationProvider.html5Mode(true);
 	})

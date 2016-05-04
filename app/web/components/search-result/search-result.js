@@ -1,3 +1,6 @@
+import angular from "angular";
+import searchResultItem from "./search-result-item/search-result-item";
+
 function SearchResultController(persistenceService, progressBarService) {
 	this.items = [];
 
@@ -18,13 +21,10 @@ function SearchResultController(persistenceService, progressBarService) {
 	};
 }
 
-export default {
-	name: "searchResult",
-	component: {
-		controller: SearchResultController,
-		templateUrl: __dirname + "/search-result.html",
-		bindings: {
-			$router: "<"
-		}
+export default angular.module("search-result", ["search-result-item"]).component("searchResult", {
+	controller: SearchResultController,
+	templateUrl: __dirname + "/search-result.html",
+	bindings: {
+		$router: "<"
 	}
-};
+});
