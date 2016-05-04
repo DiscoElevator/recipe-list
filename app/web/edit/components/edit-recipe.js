@@ -1,11 +1,12 @@
+import angular from "angular";
+
 function EditRecipeController(persistenceService, progressBarService) {
 	this.save = () => {
 		if (!validate(this.recipe)) {
 			return;
 		}
 		progressBarService.show();
-		let recipeToSave = Object.assign({}, this.recipe);
-		recipeToSave.ingredients = JSON.parse(angular.toJson(this.recipe.ingredients));
+		let recipeToSave = JSON.parse(angular.toJson(this.recipe));
 		persistenceService.saveRecipe(recipeToSave).then(() => {
 			progressBarService.hide();
 		}).catch(err => {

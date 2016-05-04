@@ -7,11 +7,6 @@ function SearchResultItemController(persistenceService) {
 		var instruction = this.router.generate(["View", {recipeId: String(id)}]);
 		this.router.navigateByInstruction(instruction);
 	};
-	this.removeRecipe = (id) => {
-		persistenceService.remove(id).then(() => {
-			this.onRemove();
-		});
-	};
 }
 
 export default {

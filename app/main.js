@@ -34,24 +34,6 @@ function createWindow () {
   });
 }
 
-// let splashScreen;
-
-// function createSplash() {
-// 	splashScreen = new BrowserWindow({width: 300, height: 300, frame: false, center: true, closable: false, minimizable: false, maximizable: false});
-// 	splashScreen.setMenuBarVisibility(false);
-// 	splashScreen.on("closed", () => {
-// 		splashScreen = null;
-// 	});
-// }
-
-// function init() {
-// 	createSplash();
-// 	setTimeout(() => {
-// 		createWindow();
-// 		splashScreen.close();
-// 	}, 3000);
-// }
-
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
 app.on("ready", createWindow);

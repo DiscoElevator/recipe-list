@@ -16,10 +16,6 @@ function SearchResultController(persistenceService, progressBarService) {
 			});
 		}
 	};
-
-	this.update = () => {
-		console.log("update");
-	};
 }
 
 export default {
