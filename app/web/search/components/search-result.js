@@ -5,7 +5,7 @@ function SearchResultController(persistenceService, progressBarService) {
 		let name = next.params.name;
 		progressBarService.show();
 		if (name) {
-			return persistenceService.getByName(name).then(results => {
+			return persistenceService.getRecipeByName(name).then(results => {
 				this.items = results;
 				progressBarService.hide();
 			});

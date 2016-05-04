@@ -9,9 +9,22 @@ function EditRecipeController(persistenceService, progressBarService) {
 		persistenceService.saveRecipe(recipeToSave).then(() => {
 			progressBarService.hide();
 		}).catch(err => {
-			console.log(err);
+			console.error(err);
 		});
 		this.reset();
+	};
+
+	this.remove = () => {
+		if (!this.recipe._id) {
+			return;
+		}
+		progressBarService.show();
+		persistenceService.remove(this.recipe._id).then(() => {
+			this.reset();
+			progressBarService.hide();
+		}).catch(err => {
+			console.error(err);
+		});
 	};
 
 	this.addIngredient = () => {
@@ -28,6 +41,8 @@ function EditRecipeController(persistenceService, progressBarService) {
 			return persistenceService.getRecipeById(id).then(recipe => {
 				this.recipe = recipe;
 				progressBarService.hide();
+			}).catch(err => {
+				console.error(err);
 			});
 		} else {
 			this.reset();
@@ -42,7 +57,7 @@ function EditRecipeController(persistenceService, progressBarService) {
 }
 
 function validate(recipe) {
-	return recipe && recipe.name && recipe.process;
+	return recipe && recipe.name && recipe.process && (recipe.ingredients && recipe.ingredients.length);
 }
 
 const editRecipe = {
