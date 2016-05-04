@@ -1,24 +1,22 @@
-<!-- <div layout="row" flex> -->
-	<md-toolbar>
-		<div class="md-toolbar-tools" layout="row">
-			<a ng-link="['Home']">
-				<md-icon>home</md-icon>
-			</a>
-			<a ng-link="['New']">&nbsp;<md-icon>add</md-icon>&nbsp;</a></li>
-			<div flex layout="row" layout-margin="0">
-				<form>
-					<div layout="row">
-						<md-input-container md-no-float class="md-block">
-							<input type="text" ng-model="$ctrl.searchQuery" aria-label="Search">
-						</md-input-container>
-						<md-input-container md-no-float class="md-block">
-							<md-button type="submit" class="md-fab md-mini" aria-label="FAB" ng-click="$ctrl.search()">
-								<md-icon>search</md-icon>
-							</md-button>
-						</md-input-container>
-					</div>
-				</form>
-			</div>
+<md-toolbar>
+	<div class="md-toolbar-tools" layout="row">
+		<a ng-link="['Home']">
+			<md-icon>home</md-icon>
+		</a>
+		<a ng-link="['New']">&nbsp;<md-icon>add</md-icon>&nbsp;</a></li>
+		<div flex layout="row" layout-margin="0">
+			<form>
+				<div layout="row">
+					<md-input-container md-no-float class="md-block">
+						<input type="text" ng-model="$ctrl.searchQuery" aria-label="Search">
+					</md-input-container>
+					<md-input-container md-no-float class="md-block">
+						<md-button type="submit" class="md-fab md-mini" aria-label="FAB" ng-click="$ctrl.search()" ng-disabled="!$ctrl.searchQuery">
+							<md-icon>search</md-icon>
+						</md-button>
+					</md-input-container>
+				</div>
+			</form>
 		</div>
-	</md-toolbar>
-	<!-- </div> -->
+	</div>
+</md-toolbar>
