@@ -33,15 +33,17 @@ function persistenceService($q) {
 			}
 			if (!recipe._id) {
 				return $q.when(dbLoadedPromise).then(() => {
-					return $q.when(db.insertAsync(recipe).then(resultArray => {
+					return db.insertAsync(recipe).then(resultArray => {
 						return resultArray[0];
-					}));
+					});
 
 				});
 			} else {
-				return $q.when(db.updateAsync({_id: recipe._id}, recipe).then(results => {
-					return results[1];
-				}));
+				return $q.when(dbLoadedPromise).then(() => {
+					return db.updateAsync({_id: recipe._id}, recipe).then(results => {
+						return results[1];
+					});
+				});
 			}
 		},
 		getRecipeByName(name) {
